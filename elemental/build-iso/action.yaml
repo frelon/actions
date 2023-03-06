@@ -1,0 +1,22 @@
+name: Build elemental ISO
+description: |
+  This action builds an ISO from an elemental container image.
+inputs:
+  config-dir:
+    description: Configuration directory
+    default: ./
+  output-dir:
+    description: Directory to place output artifacts
+    default: ./
+  system-uri:
+    description: Container image
+    required: true
+
+runs:
+  using: "composite"
+
+  steps:
+    - name: Build ISO
+      shell: bash
+      run: |
+        elemental build-iso --output='${{ inputs.output-dir }}' --config-dir='${{ inputs.config-dir }}' '${{ inputs.system-uri }}'

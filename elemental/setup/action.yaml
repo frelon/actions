@@ -27,6 +27,6 @@ runs:
       shell: bash
       run: |
         cd $(mktemp -d)
-        wget -O elemental.tar.gz "https://github.com/${{ inputs.repository }}/releases/download/€{{ inputs.version }}/elemental-${{ inputs.version }}-${{ inputs.os }}-${{ inputs.arch}}.tar.gz"
+        wget -O elemental.tar.gz "https://github.com/${{ inputs.repository }}/releases/download/${{ inputs.version }}/elemental-${{ inputs.version }}-${{ inputs.os }}-${{ inputs.arch}}.tar.gz"
         tar xzf elemental.tar.gz
         sudo mv ./elemental /usr/local/bin

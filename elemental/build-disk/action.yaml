@@ -1,0 +1,28 @@
+name: Build elemental disk
+description: |
+  This action builds a disk image from an OS container image.
+inputs:
+  debug:
+    description: Output debug logs
+    default: false
+  name:
+    description: Name of output (without extension)
+    default: elemental
+  config-dir:
+    description: Configuration directory
+    default: ./
+  output-dir:
+    description: Directory to place output artifacts
+    default: ./
+  system:
+    description: Container image
+    required: true
+
+runs:
+  using: "composite"
+
+  steps:
+    - name: Build disk
+      shell: bash
+      run: |
+        elemental build-disk --expandable ${{ inputs.debug && '--debug' }} --name='${{ inputs.name }}' --output='${{ inputs.output-dir }}' --config-dir='${{ inputs.config-dir }}' --system '${{ inputs.system-uri }}'

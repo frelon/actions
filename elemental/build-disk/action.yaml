@@ -25,4 +25,4 @@ runs:
     - name: Build disk
       shell: bash
       run: |
-        elemental build-disk --expandable ${{ inputs.debug && '--debug' }} --name='${{ inputs.name }}' --output='${{ inputs.output-dir }}' --config-dir='${{ inputs.config-dir }}' --system '${{ inputs.system-uri }}'
+        elemental build-disk --expandable ${{ inputs.debug && '--debug' }} --name='${{ inputs.name }}' --output='${{ inputs.output-dir }}' --config-dir='${{ inputs.config-dir }}' --system '${{ inputs.system }}'
